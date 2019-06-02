@@ -1,0 +1,48 @@
+.container{
+    border: #747474 solid 2px;
+}
+/* header */
+.head{
+    display: flex;
+    margin-top: 1rem;
+}
+.rating-filter{
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: goldenrod;
+    display: flex;
+    justify-content: space-around;
+    border:solid gray 2px;
+}
+.input{
+   height: 100% !important;
+}
+/* main */
+/* movies */
+.one-mv{
+    padding: 1rem;
+}
+.card-container{
+    display: flex;
+    margin:2rem;
+    justify-content: space-around;
+    font-size: 1.2rem;
+    color: #747474;
+    flex-wrap: wrap;
+}
+/* new movie */
+.new-movie{
+    margin-top:7rem;
+    height: 15rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: #747474 solid 5px;
+    width: 25% !important;
+    margin-left: 2rem;
+}
+.add-button{
+    width: 5rem;
+    height: 5rem;
+}
