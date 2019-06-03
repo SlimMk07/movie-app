@@ -31,18 +31,10 @@
     flex-wrap: wrap;
 }
 /* new movie */
-.new-movie{
-    margin-top:7rem;
-    height: 15rem;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: #747474 solid 5px;
-    width: 25% !important;
-    margin-left: 2rem;
-}
 .add-button{
-    width: 5rem;
+    width: 50rem;
     height: 5rem;
+    margin-left: 10rem;
+    font-size: 300%
+    
 }

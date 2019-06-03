@@ -1,7 +1,5 @@
 import React from 'react'
 import Item from './item'
-import Add from './add'
-
 
 const Movies=({movie})=> {
    
@@ -10,7 +8,6 @@ const Movies=({movie})=> {
     <div  className='card-container'>
         { movie.map((el,index) =><Item key={index} movie={el} />)}
         <div className="new-movie">
-          <Add />
         </div>
     </div>
   ) 

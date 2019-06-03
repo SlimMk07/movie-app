@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import Search from './search';
 import Rating from './rating-s';
-import Movies from './movie-list'
+import Movies from './movie-list';
+import Add from './add'
 
 
 const movies = [
@@ -76,14 +77,9 @@ class App extends Component {
   }
   // test= setTimeout(
   //   () => {
-  //     this.addNewMovie({
-  //       id: 'newmovie',
-  //       title: 'The New Movie',
-  //       rating: 5,
-  //       year: 2018
-  //     })
+  //     this.addNewMovie()
   //   },
-  //   5000)
+  //   3000)
 
 
   // addNewMovie=(newMovie)=> {
@@ -92,7 +88,11 @@ class App extends Component {
   //   })
   // }
 
-  
+  addNewMovie = (titre, year, rating, description, image) => {
+    movies.push({ titre, year, image, rating, description })
+    this.setState({newmovies: movies })
+  }
+
 
   render() {
     return (
@@ -102,7 +102,7 @@ class App extends Component {
           <Rating getRating={(y)=>this.titre(null, y)}/>
         </div>
         <Movies movie={this.state.newmovies} />
-        
+        <Add addNewMovie={this.addNewMovie} />
       </div>
     );
   }

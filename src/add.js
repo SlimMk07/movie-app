@@ -7,12 +7,35 @@ class Add extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            modal: false,
-            rating: 1
+            modal: false, titre: '', year: 2000, description: '', rating: 1, image: '', invalidFile: false 
         };
 
         this.toggle = this.toggle.bind(this);
     }
+    // save
+    saveMovies = () => {
+        if (this.state.modal === false)
+          this.props.addNewMovie(
+            this.state.titre, this.state.year, this.state.rating, this.state.description, this.state.image
+          )
+      }
+    //   update rating
+    onStarClick(nextValue,) { this.setState({ rating: nextValue }); }
+  toggle = () => {
+    this.setState(prevState => ({ modal: !prevState.modal }), () => this.saveMovies()
+    )
+  }
+
+  //movie informations update
+  saveInfos = (e) => {
+    e.target.name === 'titre' ? this.setState({ titre: e.target.value }) :
+    e.target.name === 'year' ? this.setState({ year: e.target.value }) :
+    e.target.name === 'img' ? this.setState({ image: URL.createObjectURL(e.target.files[0]) }) :
+    e.target.name === 'description' ? this.setState({ description: e.target.value }) :
+      this.setState({ description: e.target.value })
+  }
+
+// par defaut modal
 
     toggle() {
         this.setState(prevState => ({
@@ -23,7 +46,7 @@ class Add extends React.Component {
         this.setState({ rating: nextValue },);
     }
     render() {
-        const { rating } = this.state;
+        const { rating,} = this.state;
         return (
             <div>
                 <Button className='add-button' color="secondary" onClick={this.toggle}>+</Button>
@@ -33,15 +56,15 @@ class Add extends React.Component {
                     <ModalBody>
                         <Form>
                             <FormGroup row>
-                                <Label for="exampleTitle" sm={2}>Title</Label>
+                                <Label for="exampletitre" sm={2}>titre</Label>
                                 <Col sm={10}>
-                                    <Input type="Title" name="Title" id="exampleTitle" />
+                                    <Input type="titre" name="titre" id="exampletitre" onChange={this.saveInfos} />
                                 </Col>
                             </FormGroup>
                             <FormGroup row>
                                 <Label for="exampleYear" sm={2}>Year</Label>
                                 <Col sm={10}>
-                                    <Input type="Year" name="Year" id="exampleYear" />
+                                    <Input type="Year" name="year" id="exampleYear" onChange={this.saveInfos} />
                                 </Col>
                             </FormGroup>
                             <FormGroup row>
@@ -58,19 +81,19 @@ class Add extends React.Component {
                             <FormGroup row>
                                 <Label for="exampleText" sm={2}>Description</Label>
                                 <Col sm={10}>
-                                    <Input type="textarea" name="text" id="exampleText" />
+                                    <Input type="textarea" name="description" id="exampleText" onChange={this.saveInfos}/>
                                 </Col>
                             </FormGroup>
                             <FormGroup row>
                                 <Label for="exampleFile" sm={2}>File</Label>
                                 <Col sm={10}>
-                                    <Input type="file" name="file" id="exampleFile" />
+                                    <Input type="file" name="img" id="exampleFile" onChange={this.saveInfos}/>
                                 </Col>
                             </FormGroup>
                         </Form>
                     </ModalBody>
                     <ModalFooter>
-                        <Button color="primary" onClick={this.toggle}>Save</Button>{' '}
+                        <Button color="primary" onClick={ this.toggle}>Save</Button>{' '}
                         <Button color="secondary" onClick={this.toggle}>Cancel</Button>
                     </ModalFooter>
                 </Modal>
