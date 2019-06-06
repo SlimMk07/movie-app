@@ -57,7 +57,8 @@ class App extends Component {
     this.state = {
       newmovies: movies,
       rating:1,
-      title:""
+      title:"",
+      isLoading: true
     }
   }
   
@@ -75,22 +76,14 @@ class App extends Component {
     }
     this.setState({ newmovies: filtred })
   }
-  // test= setTimeout(
-  //   () => {
-  //     this.addNewMovie()
-  //   },
-  //   3000)
-
-
-  // addNewMovie=(newMovie)=> {
-  //   this.setState({
-  //     newmovies: this.state.newmovies.concat(newMovie)
-  //   })
-  // }
 
   addNewMovie = (titre, year, rating, description, image) => {
     movies.push({ titre, year, image, rating, description })
     this.setState({newmovies: movies })
+  }
+
+  componentDidMount(){
+    setTimeout(()=>this.setState({isLoading:false}),4000)
   }
 
 
@@ -101,7 +94,7 @@ class App extends Component {
           <Search getFix={(x) => this.titre(x)} />
           <Rating getRating={(y)=>this.titre(null, y)}/>
         </div>
-        <Movies movie={this.state.newmovies} />
+        <Movies movie={this.state.newmovies} isLoading={this.state.isLoading} />
         <Add addNewMovie={this.addNewMovie} />
       </div>
     );

@@ -49,7 +49,7 @@ class Add extends React.Component {
         const { rating,} = this.state;
         return (
             <div>
-                <Button className='add-button' color="secondary" onClick={this.toggle}>+</Button>
+                <Button className='add-button' color="secondary" onClick={this.toggle}>ADD A NEW MOVIE HERE</Button>
                 <Modal isOpen={this.state.modal} modalTransition={{ timeout: 700 }} backdropTransition={{ timeout: 1300 }}
                     toggle={this.toggle} className={this.props.className}>
                     <ModalHeader toggle={this.toggle}>Add New Movie</ModalHeader>

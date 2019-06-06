@@ -1,5 +1,6 @@
 import React from 'react'
 import Item from './item'
+import LoadingHoc from './hoc'
 
 const Movies=({movie})=> {
    
@@ -12,4 +13,4 @@ const Movies=({movie})=> {
     </div>
   ) 
 }
-export default Movies;
+export default LoadingHoc(Movies);
