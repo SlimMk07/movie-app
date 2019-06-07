@@ -83,7 +83,7 @@ class App extends Component {
   }
 
   componentDidMount(){
-    setTimeout(()=>this.setState({isLoading:false}),4000)
+    setTimeout(()=>this.setState({isLoading:false}),4000000)
   }
 
 
